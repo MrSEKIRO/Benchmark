@@ -21,6 +21,7 @@ public class MyMappers
 
 	public MyMappers()
     {
+		// configuration for Automapper
 		var config = new MapperConfiguration(cfg => 
 		{
 			cfg.CreateMap<UserDto, InternalUser>();
@@ -47,6 +48,7 @@ public class MyMappers
 	[Benchmark]
 	public void InternalMappingUsingMappster()
 	{
+		// even without configuration
 		var user = dto.Adapt<InternalUser>();
 	}
 

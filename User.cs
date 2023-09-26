@@ -14,14 +14,16 @@ namespace Benchmark
         public int Age { get; internal set; }
         public decimal Balance { get; internal set; }
 
-        public InternalUser(string name, string password, string email, int age, decimal balance)
-        {
-            Name = name;
-            Password = password;
-            Email = email;
-            Age = age;
-            Balance = balance;
-        }
+        // mapping done even without constructor 
+
+        //public InternalUser(string name, string password, string email, int age, decimal balance)
+        //{
+        //    Name = name;
+        //    Password = password;
+        //    Email = email;
+        //    Age = age;
+        //    Balance = balance;
+        //}
     }
 
     public class PublicUser
@@ -46,17 +48,17 @@ namespace Benchmark
     {
         public static InternalUser ToInternalUser(this UserDto dto)
         {
-			//return new User()
-            //{
-			//	Name = dto.Name,
-			//	Password = dto.Password,
-			//	Email = dto.Email,
-			//	Age = dto.Age,
-			//	Balance = dto.Balance
-			//};
+            return new InternalUser()
+            {
+                Name = dto.Name,
+                Password = dto.Password,
+                Email = dto.Email,
+                Age = dto.Age,
+                Balance = dto.Balance
+            };
 
-            return new InternalUser(dto.Name, dto.Password, dto.Email, dto.Age, dto.Balance);
-		}
+            //return new InternalUser(dto.Name, dto.Password, dto.Email, dto.Age, dto.Balance);
+        }
 
         public static PublicUser ToPublicUser(this UserDto dto)
         {

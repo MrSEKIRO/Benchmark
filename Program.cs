@@ -6,12 +6,17 @@ namespace Benchmark
 	{
 		static void Main(string[] args)
 		{
-			BenchmarkRunner.Run<MyMappers>();
+			// Run benchmark
+			//BenchmarkRunner.Run<MyMappers>();
 
-			//MyMappers myMappers = new MyMappers();
-			//myMappers.MappingUsingAutoMapper();
-			//myMappers.MappingUsingMappster();
-			//myMappers.MappingUsingExtensionMethods();
+			// Test mappings is done
+			MyMappers myMappers = new MyMappers();
+			myMappers.InternalMappingUsingAutoMapper();
+			myMappers.InternalMappingUsingMappster();
+			myMappers.InternalMappingUsingExtensionMethods();
+
+			var interalUser = new InternalUser();
+			interalUser.Balance = 2;
 		}
 	}
 }
